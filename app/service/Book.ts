@@ -10,7 +10,7 @@ export default class Book extends Service {
      * @param name - your name
      */
     public async create(name: string) {
-        const random = Math.trunc(Math.random() * 100000)
+        const random = Math.trunc(Math.random() * 100000);
         const newBook = new this.ctx.model.Book({ name: `书名_${name}_${random}` });
         const result = await newBook.save();
         return result;

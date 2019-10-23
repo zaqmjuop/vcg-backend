@@ -1,17 +1,20 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
 
 export default (appInfo: EggAppInfo) => {
-  const config = {
-    mongoose: {
-      url: 'mongodb://127.0.0.1/vcg',
-      options: {},
-    },
-  } as PowerPartial<EggAppConfig>;
+  const config = {} as PowerPartial<EggAppConfig>;
 
   // override config from framework / plugin
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1571743012926_9577';
-
+  config.security = {
+    csrf: {
+      enable: false,
+    },
+  };
+  config.mongoose = {
+    url: 'mongodb://127.0.0.1/vcg',
+    options: { useUnifiedTopology: true },
+  };
   // add your egg config in here
   config.middleware = [];
 
