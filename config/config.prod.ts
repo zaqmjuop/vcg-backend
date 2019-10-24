@@ -22,6 +22,9 @@ export default (appInfo: EggAppInfo) => {
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
   };
+  config.assets = {
+    publicPath: '/public/',
+  };
 
   // the return config will combines to EggAppConfig
   return {
